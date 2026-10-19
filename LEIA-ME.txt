@@ -1,0 +1,20 @@
+PURPLE POWERS SITE
+
+Como acessar:
+- Menu: index.html
+- Informações: informacoes.html
+- Painel do criador: admin.html
+Depois de publicar no GitHub Pages, o painel fica em:
+https://thebraziliansammy.github.io/Purple-Power-Site/admin.html
+
+IMPORTANTE SOBRE O PAINEL:
+O painel atual guarda rascunhos apenas no navegador/dispositivo e permite exportar/importar JSON.
+Ele NÃO publica atualizações automaticamente para todos os visitantes. Para isso, é necessário ligar a um backend online, como Supabase, ou criar uma integração segura com GitHub Actions. Não coloques tokens privados no HTML público.
+
+Publicação:
+1. Extraia o ZIP.
+2. Envie/substitua os arquivos no repositório GitHub Pages.
+3. Inclua a pasta assets inteira.
+4. Faça commit e aguarde a atualização do GitHub Pages.
+
+Edite informacoes.html para mudar a descrição, changelog e versão exibidos publicamente.

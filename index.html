@@ -1,244 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Purple Power | Addon Minecraft</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10051c">
+  <meta name="description" content="Purple Powers — addon para Minecraft Bedrock, Purple by Master.">
+  <title>Purple Powers | Purple by Master</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Background particles / blocks -->
-  <div class="bg-blocks" aria-hidden="true">
-    <div class="block b1"></div>
-    <div class="block b2"></div>
-    <div class="block b3"></div>
-    <div class="block b4"></div>
-    <div class="block b5"></div>
-    <div class="block b6"></div>
-  </div>
+  <div class="particles" aria-hidden="true"></div>
+  <main class="page home">
+    <header class="brand">
+      <img class="crystal" src="assets/purple-crystal.png" alt="Cristal roxo pixel art do Purple Powers">
+      <h1>PURPLE POWERS</h1>
+      <p class="byline"><span></span>PURPLE BY MASTER<span></span></p>
+    </header>
 
-  <!-- Header / Navbar -->
-  <header class="mc-header">
-    <div class="logo">
-      <span class="logo-icon">◆</span>
-      <span class="logo-text">PURPLE POWER</span>
-    </div>
-    <nav class="mc-nav">
-      <a href="#inicio" class="nav-btn active">Início</a>
-      <a href="#features" class="nav-btn">Features</a>
-      <a href="#download" class="nav-btn">Download</a>
-      <a href="#galeria" class="nav-btn">Galeria</a>
-      <a href="#sobre" class="nav-btn">Sobre</a>
+    <section class="notice">
+      <span class="notice-icon" aria-hidden="true">✦</span>
+      <div><h2>Addon em desenvolvimento!</h2><p>Está sendo desenvolvida por uma pessoa apenas.</p></div>
+    </section>
+
+    <nav class="actions" aria-label="Links principais">
+      <!-- Troque #download pelo link direto do arquivo .mcaddon quando estiver pronto. -->
+      <a class="button primary" href="#download" id="download-button"><span aria-hidden="true">↓</span> Download</a>
+      <a class="button" href="informacoes.html"><span aria-hidden="true">ⓘ</span> Informações</a>
+      <a class="button discord" href="https://discord.gg/XKQfaAktDk" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◉</span> Discord Server ↗</a>
     </nav>
-  </header>
-
-  <!-- Hero -->
-  <section id="inicio" class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">
-        <span class="title-line">PURPLE</span>
-        <span class="title-line power">POWER</span>
-      </h1>
-      <p class="hero-subtitle">A Addon que traz o poder púrpura para o seu mundo Minecraft</p>
-      <p class="hero-desc">
-        Cristais energéticos • Armaduras lendárias • Habilidades sobrenaturais<br>
-        Domine a energia roxa e torne-se imparável.
-      </p>
-      <div class="hero-buttons">
-        <a href="#download" class="mc-button primary">
-          <span class="btn-inner">BAIXAR AGORA</span>
-        </a>
-        <a href="#features" class="mc-button secondary">
-          <span class="btn-inner">VER FEATURES</span>
-        </a>
-      </div>
-      <div class="version-badge">
-        Compatível com Minecraft Bedrock 1.20+
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="crystal-container">
-        <div class="crystal"></div>
-        <div class="crystal-glow"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="section features">
-    <h2 class="section-title">
-      <span class="title-icon">✦</span> FEATURES
-    </h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">⚔️</div>
-        <h3>Armaduras Roxas</h3>
-        <p>Conjuntos completos de armadura forjados com Cristal Púrpura. Resistência superior e efeitos especiais de regeneração.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💎</div>
-        <h3>Cristais de Energia</h3>
-        <p>Novos minérios e cristais que geram energia roxa. Use-os para craftar itens poderosos e ativar habilidades.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✨</div>
-        <h3>Habilidades Especiais</h3>
-        <p>Teleporte curto, explosões de energia, escudos de força e ataques em área com o poder púrpura.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔮</div>
-        <h3>Itens Mágicos</h3>
-        <p>Cajados, orbes e amuletos que canalizam a energia roxa. Domine a magia do Nether e do End.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🐉</div>
-        <h3>Mobs Únicos</h3>
-        <p>Criaturas imbuídas de poder púrpura que aparecem em biomas especiais e dropam materiais raros.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🏗️</div>
-        <h3>Blocos Decorativos</h3>
-        <p>Blocos luminosos, pilares e estruturas em tons de roxo para deixar suas bases lendárias.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Download -->
-  <section id="download" class="section download">
-    <h2 class="section-title">
-      <span class="title-icon">⬇</span> DOWNLOAD
-    </h2>
-    <div class="download-box">
-      <div class="download-info">
-        <h3>Purple Power Addon</h3>
-        <p class="version">Versão 1.2.0 • Bedrock Edition</p>
-        <ul class="download-list">
-          <li>✓ Arquivo .mcaddon pronto para instalar</li>
-          <li>✓ Experimental Features recomendadas</li>
-          <li>✓ Compatível com Realms e servidores</li>
-          <li>✓ Atualizações futuras incluídas</li>
-        </ul>
-      </div>
-      <div class="download-actions">
-        <a href="#" class="mc-button primary large" onclick="alert('Arquivo .MCADDON ainda não disponivel.')">
-          <span class="btn-inner">DOWNLOAD .MCADDON</span>
-        </a>
-        <p class="download-note">Clique direito → Salvar como (exemplo)</p>
-      </div>
-    </div>
-    <div class="install-steps">
-      <h3>Como instalar:</h3>
-      <ol>
-        <li>Baixe o arquivo <strong>.mcaddon</strong></li>
-        <li>Abra o arquivo (ele importa automaticamente no Minecraft)</li>
-        <li>Ative a addon no mundo (Comportamento + Recursos)</li>
-        <li>Ative as Experimental Gameplay se necessário</li>
-        <li>Entre no mundo e aproveite o poder púrpura!</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Galeria -->
-  <section id="galeria" class="section gallery">
-    <h2 class="section-title">
-      <span class="title-icon">▣</span> GALERIA
-    </h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <div class="placeholder-img img1">
-          <span>Armadura Completa</span>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <div class="placeholder-img img2">
-          <span>Cristal de Energia</span>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <div class="placeholder-img img3">
-          <span>Habilidade em Ação</span>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <div class="placeholder-img img4">
-          <span>Base Roxa</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre -->
-  <section id="sobre" class="section about">
-    <h2 class="section-title">
-      <span class="title-icon">◆</span> SOBRE A ADDON
-    </h2>
-    <div class="about-content">
-      <p>
-        <strong>Purple Power</strong> é uma addon criada para jogadores que querem algo além do vanilla.
-        Inspirada no poder místico da cor roxa, ela adiciona um sistema completo de energia,
-        craftagens avançadas e combate estratégico.
-      </p>
-      <p>
-        Seja você um construtor, aventureiro ou PvP, o poder púrpura se adapta ao seu estilo de jogo.
-        Explore minas profundas, derrote criaturas carregadas de energia e construa bases dignas de um verdadeiro mestre.
-      </p>
-      <div class="stats">
-        <div class="stat">
-          <span class="stat-num">12+</span>
-          <span class="stat-label">Itens Novos</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">4</span>
-          <span class="stat-label">Conjuntos de Armadura</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">8</span>
-          <span class="stat-label">Habilidades</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">∞</span>
-          <span class="stat-label">Diversão</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="mc-footer">
-    <div class="footer-content">
-      <p class="footer-logo">◆ PURPLE POWER ◆</p>
-      <p class="footer-credits">
-        Addon feita pela equipe <strong>Purple Powers Team</strong> e<br>
-        <strong>Bacon Master</strong><br>
-        em parceria com <strong>Brazilian</strong>
-      </p>
-      <p class="footer-text">Addon não oficial para Minecraft Bedrock Edition</p>
-      <p class="footer-disclaimer">
-        Minecraft é uma marca registrada da Mojang Studios / Microsoft.<br>
-        Este site e a addon não são afiliados à Mojang.
-      </p>
-    </div>
-  </footer>
-
+    <p class="download-note" id="download">O download será disponibilizado aqui quando a próxima versão estiver pronta.</p>
+    <footer><span class="footer-mark">✦</span><p>PURPLE POWERS <span>•</span> PURPLE BY MASTER</p><a href="admin.html" style="color:#8d4eb3;text-decoration:none;font:9px Roboto,sans-serif;margin-left:10px">Painel do criador</a></footer>
+  </main>
   <script>
-    // Smooth scroll e active nav
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-
-    // Simple parallax on blocks
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      document.querySelectorAll('.block').forEach((block, i) => {
-        const speed = (i + 1) * 0.05;
-        block.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.02}deg)`;
-      });
+    document.getElementById('download-button').addEventListener('click', function (event) {
+      event.preventDefault();
+      document.getElementById('download').classList.toggle('visible');
+      document.getElementById('download').scrollIntoView({behavior:'smooth', block:'center'});
     });
   </script>
 </body>

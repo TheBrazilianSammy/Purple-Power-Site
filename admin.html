@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10051c">
+  <title>Painel do Criador | Purple Powers</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-wrap{max-width:760px;margin:0 auto}
+    .admin-card{padding:22px;margin:18px 0;border:1px solid rgba(190,37,255,.6);background:rgba(27,7,47,.92)}
+    .admin-card h2{color:#f17aff;margin-top:0}
+    label{display:block;color:#e8c7ff;font-weight:700;margin:15px 0 7px}
+    input,textarea{width:100%;padding:13px;border:1px solid #8522b6;border-radius:5px;background:#170827;color:#fff;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .admin-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .admin-actions .button{cursor:pointer;font:700 15px Roboto, sans-serif}
+    .status{padding:12px;margin-top:14px;background:#220b35;color:#e6baff;border-left:3px solid #df2cff;line-height:1.5}
+    .warning{color:#ffd6a1;font-size:14px;line-height:1.6}
+    .tiny{font-size:13px;color:#c4a0d9;line-height:1.6}
+  </style>
+</head>
+<body>
+  <div class="particles" aria-hidden="true"></div>
+  <main class="page admin-wrap">
+    <a class="back-link" href="index.html">← Voltar ao site</a>
+    <header class="info-heading">
+      <img class="small-crystal" src="assets/purple-crystal.png" alt="">
+      <p class="eyebrow">PURPLE BY MASTER</p>
+      <h1>PAINEL DO CRIADOR</h1>
+      <p class="subtitle">Prepara os dados da próxima atualização.</p>
+    </header>
+
+    <section class="admin-card">
+      <h2>Publicação</h2>
+      <p class="warning">Este painel funciona como rascunho no navegador. O GitHub Pages é estático, então salvar aqui não publica automaticamente para todos os visitantes.</p>
+      <label for="version">Versão recente</label>
+      <input id="version" placeholder="Ex.: 1.2.0">
+      <label for="changes">Mudanças nesta atualização</label>
+      <textarea id="changes" placeholder="Escreve uma mudança por linha..."></textarea>
+      <label for="description">Descrição da addon</label>
+      <textarea id="description" placeholder="Descrição pública do Purple Powers..."></textarea>
+      <label for="download">Link direto do download (.mcaddon)</label>
+      <input id="download" type="url" placeholder="https://...">
+      <div class="admin-actions">
+        <button class="button primary" id="save" type="button">Guardar rascunho</button>
+        <button class="button" id="export" type="button">Exportar dados</button>
+        <label class="button" for="import-file" style="margin:0;cursor:pointer">Importar dados</label>
+        <input id="import-file" type="file" accept="application/json,.json" hidden>
+      </div>
+      <div class="status" id="status" role="status">Ainda não guardaste um rascunho.</div>
+      <p class="tiny">Os dados guardados ficam apenas neste navegador/dispositivo. Usa “Exportar dados” para guardar um ficheiro JSON de backup.</p>
+    </section>
+
+    <section class="admin-card">
+      <h2>Como publicar de verdade</h2>
+      <ol class="tiny">
+        <li>Guarda os dados e exporta o ficheiro JSON.</li>
+        <li>Para atualizar o site público, é necessário ligar o painel a um serviço online (por exemplo, Supabase) ou atualizar os arquivos no GitHub.</li>
+        <li>Não coloques tokens privados do GitHub ou senhas secretas dentro de um site público.</li>
+      </ol>
+      <a class="button discord" href="https://github.com/" target="_blank" rel="noopener noreferrer">Abrir GitHub ↗</a>
+    </section>
+    <footer><span class="footer-mark">✦</span><p>PURPLE POWERS <span>•</span> PAINEL DO CRIADOR</p></footer>
+  </main>
+<script>
+const fields = ['version','changes','description','download'];
+const statusEl = document.getElementById('status');
+function getData(){ const data={}; fields.forEach(k=>data[k]=document.getElementById(k).value.trim()); return data; }
+function setData(data){ fields.forEach(k=>document.getElementById(k).value=data[k]||''); }
+function say(msg){statusEl.textContent=msg;}
+document.getElementById('save').addEventListener('click',()=>{
+  const data=getData();
+  try { localStorage.setItem('purplePowersDraft',JSON.stringify(data)); say('Rascunho guardado neste navegador. Ainda não foi publicado no site público.'); }
+  catch(e){say('Não foi possível guardar neste navegador. Usa Exportar dados.');}
+});
+document.getElementById('export').addEventListener('click',()=>{
+  const blob=new Blob([JSON.stringify(getData(),null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob); const a=document.createElement('a');
+  a.href=url;a.download='purple-powers-update.json';a.click();URL.revokeObjectURL(url);
+  say('Ficheiro JSON exportado. Guarda-o para backup ou para integrar numa publicação.');
+});
+document.getElementById('import-file').addEventListener('change',async e=>{
+  const file=e.target.files[0]; if(!file)return;
+  try { const data=JSON.parse(await file.text()); setData(data); say('Dados importados. Clica em Guardar rascunho para os manter neste navegador.'); }
+  catch(err){say('Esse ficheiro não parece ser um JSON válido.');}
+});
+try { const saved=localStorage.getItem('purplePowersDraft'); if(saved){setData(JSON.parse(saved));say('Rascunho carregado deste navegador.');} } catch(e){}
+</script>
+</body>
+</html>
